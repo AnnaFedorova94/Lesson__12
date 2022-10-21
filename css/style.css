@@ -1,0 +1,121 @@
+@import "null.css";
+/*============ Fonts ================*/
+@import url("https://fonts.googleapis.com/css?family=Lato:regular,italic,700,900,900italic&display");
+
+/* =========================================================== */
+
+body{
+	font-family: "Lato", sans-serif ;
+	background-color: #d3f8ec;
+	
+	
+}
+
+[class*="__container"]{
+	max-width: 1230px;
+	margin: 0 auto;
+}
+.wrapper {
+	overflow: hidden;
+	position: relative;
+	min-height: 100%;
+	padding: 30px;
+}
+
+
+.section {
+	padding: 30px;
+	background-color: antiquewhite;
+	min-height: 500px;
+	box-shadow: 5px 5px 5px 5px  #000;
+	}
+
+.section__items {
+	display: inline-block;
+	margin-right: 30px;
+	width: 100px;
+	height: 100px;
+	background-color: #c9c0c0;
+}
+.item__translate,
+.item__scale,
+.item__rotate,
+.item__origin,
+.item__skew {
+	width: 100px;
+	height: 100px;
+	background-color: #ec2b2b;}
+
+.section__items:active .item__translate{
+	transform: translate(20px,20px);
+}
+.section__items:active .item__scale {
+	transform: scale(0.5,0.5);
+}
+.section__items:active .item__rotate {
+	transform: rotate(50deg);
+}
+.section__items:active .item__origin{
+	transform-origin: 0 0;
+	transform: rotate(30deg);
+}
+
+.section__items:active .item__skew{
+	transform: skew(20deg,30deg);
+}
+
+.item__style{
+	width: 100px;
+	height: 100px;
+	background-color: #ec2b2b;
+	perspective: 400px;
+	transform-style: flat;
+}
+.section__items:active .item__style{
+	transform: rotateX(50deg);
+}
+
+.item__rotate3d{
+	width: 100px;
+	height: 100px;
+	background-color: #ec2b2b;
+	perspective: 400px;
+}
+.section__items:active .item__rotate3d{
+	transform: rotate3d(1,2,1,45deg);
+}
+/* =========================== */
+.card {
+	width: 200px;
+	height: 200px;
+}
+.center {
+	position: absolute;
+	top: 60%;
+	left:50%;
+	transform: translate(-50%, -50%);
+}
+.front, 
+.back{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	backface-visibility: hidden;
+	position: absolute;
+	border-radius: 10px;
+	transition: transform .5s linear;
+}
+
+.front{
+	transform: perspective(600px) rotateY(0deg);
+}
+.back{
+	transform: perspective(600px) rotateY(180deg);
+	background-color: #c9c0c0;
+}
+.card:active .front{
+	transform: perspective(600px) rotateY(-180deg);
+}
+.card:active .back{
+	transform: perspective(600px) rotateY(0deg);
+}
